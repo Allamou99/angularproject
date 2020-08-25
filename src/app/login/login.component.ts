@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef} from '@angular/material'; 
-import { Console } from 'console';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -15,7 +14,6 @@ export class LoginComponent implements OnInit {
 
   onSubmit()
   {
-    console.log('User:', this.user);
     this.dialogRef.close();
   }
 
