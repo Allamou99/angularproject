@@ -19,6 +19,9 @@ import {MatCardModule} from '@angular/material/card';
 import {AppRoutingModule} from './app-routing/app-routing.module';
 import {DishService} from './services/dish.service';
 import {PromotionService} from './services/promotion.service';
+import{LeaderService} from './services/leader.service';
+import { LoginComponent } from './login/login.component';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -31,7 +34,8 @@ import {PromotionService} from './services/promotion.service';
     FooterComponent,
     HomeComponent,
     AboutComponent,
-    ContactComponent
+    ContactComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -42,11 +46,16 @@ import {PromotionService} from './services/promotion.service';
     MatGridListModule,
     AppRoutingModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule
   ],
   providers: [
     DishService,
-    PromotionService
+    PromotionService,
+    LeaderService
+  ],
+  entryComponents:[
+    LoginComponent
   ],
   bootstrap: [AppComponent]
 })
