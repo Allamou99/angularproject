@@ -13,7 +13,7 @@ import {Comment} from '../shared/comment';
   styleUrls: ['./dishdetail.component.scss']
 })
 export class DishdetailComponent implements OnInit {
- 
+  errMess : string;
   dish : Dish;
   dishIds : string[];
   prev:string;
@@ -63,7 +63,8 @@ export class DishdetailComponent implements OnInit {
     this.dishService.getDishesIds()
     .subscribe((dishIds) => this.dishIds = dishIds)
     this.route.params.pipe(switchMap((params: Params) => this.dishService.getDish(params['id'])))
-    .subscribe(dish => { this.dish=dish; this.setPrevNext(dish.id);});
+    .subscribe(dish => { this.dish=dish; this.setPrevNext(dish.id);},
+    errmess => this.errMess = <any>errmess);
   }
     
   setPrevNext(dishId: string)
