@@ -3,7 +3,7 @@ import { Dish } from '../shared/dish';
 import { resolve } from 'url';
 import {Observable,of} from 'rxjs';
 import {delay, catchError} from 'rxjs/operators';
-import {HttpClient, HttpXsrfTokenExtractor} from '@angular/common/http';
+import {HttpClient, HttpXsrfTokenExtractor, HttpHeaders} from '@angular/common/http';
 import {baseURL} from '../shared/baseurl';
 import {map} from 'rxjs/operators';
 import {ProcessHTTPMsgService} from './process-httpmsg.service';
@@ -37,5 +37,15 @@ export class DishService {
   getDishesIds():Observable<string[] | any>{
     return this.getDishes().pipe(map(dishes => dishes.map(dish => dish.id)))
     .pipe(catchError(error => error))
+  }
+
+  putDish(dish:Dish): Observable<Dish>{
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type' : 'application/json',
+
+      })
+    };
+    return this.http.put<Dish>(baseURL + 'dishes/' + dish.id, dish , httpOptions)
   }
 }
