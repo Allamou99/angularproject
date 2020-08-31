@@ -20,6 +20,7 @@ import {AppRoutingModule} from './app-routing/app-routing.module';
 import {DishService} from './services/dish.service';
 import {PromotionService} from './services/promotion.service';
 import{LeaderService} from './services/leader.service';
+import {FeedbackService} from './services/feedback.service';
 import { LoginComponent } from './login/login.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -35,6 +36,7 @@ import {HttpClientModule} from '@angular/common/http';
 import {baseURL} from './shared/baseurl';
 import {ProcessHTTPMsgService} from './services/process-httpmsg.service';
 import { HighlightDirective } from './directives/highlight.directive';
+
 
 @NgModule({
   declarations: [
@@ -76,6 +78,7 @@ import { HighlightDirective } from './directives/highlight.directive';
     PromotionService,
     LeaderService,
     ProcessHTTPMsgService,
+    FeedbackService,
     {provide: 'BaseURL', useValue:baseURL}
   ],
   entryComponents:[
